@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
+gem 'paperclip' # image uploading & manipulation
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

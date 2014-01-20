@@ -21,7 +21,7 @@ describe 'posts' do
   it 'should show an uploaded image' do
     visit '/posts/new'
     fill_in 'post_title', with: 'testtitle'
-    attach_file 'image', Rails.root.join('spec/images/testimage.jpg')
+    attach_file 'post_image', Rails.root.join('spec/images/testimage.jpg')
     click_button 'Create Post'
     expect(page).to have_css 'img.post-image'
   end

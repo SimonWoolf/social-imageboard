@@ -12,7 +12,7 @@ describe PostsController do
   describe "GET 'show'" do
     it "returns http success" do
       create(:post)
-      get 'show', id: 1
+      get 'show', id: Post.first.id
       response.should be_success
     end
   end

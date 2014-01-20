@@ -1,6 +1,7 @@
 %h1 Posts#new
 
-= form_for @post do |f|
+= form_for @post, html: {multipart: true} do |f|
   = f.text_field :title
   = f.text_area :body
+  = f.file_field :image
   = f.submit
