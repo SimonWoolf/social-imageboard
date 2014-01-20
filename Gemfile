@@ -11,11 +11,16 @@ group :development, :test do
   gem 'rails_layout' #see http://railsapps.github.io/rails-foundation.html
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'haml-rails'
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
 gem 'paperclip' # image uploading & manipulation
+gem 'aws-sdk'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
