@@ -7,12 +7,15 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_girl_rails', "~> 4.0", require: false
+  gem 'rails_layout' #see http://railsapps.github.io/rails-foundation.html
 end
 
 gem 'haml-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'foundation_rails_helper'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.beta1'

@@ -1,0 +1,6 @@
+%h1 Posts#new
+
+= form_for @post do |f|
+  = f.text_field :title
+  = f.text_area :body
+  = f.submit
