@@ -13,9 +13,12 @@ describe 'posts' do
     visit '/posts/new'
     fill_in 'post_title', with: 'testtitle'
     fill_in 'post_body', with: 'testbody'
+    fill_in 'post_tagstring', with: 'testing, feature'
     click_button 'Create Post'
     expect(page).to have_content 'testtitle'
     expect(page).to have_content 'testbody'
+    expect(page).to have_content '#testing'
+    expect(page).to have_content '#feature'
   end
 
   it 'should show an uploaded image' do

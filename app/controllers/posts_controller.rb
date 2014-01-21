@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  POST_FIELDS = [:title, :body, :image]
+  POST_FIELDS = [:title, :body, :image, :tagstring]
   
   def index
     @posts = Post.all
