@@ -1,10 +1,11 @@
-%h2= link_to post.title, post_path(post)
-%p
-  = link_to 'edit', edit_post_path(post)
-  = link_to 'delete', post_path(post), method: :delete
-%p= post.body
-%p
-  = post.tags.map do |tag|
-    -   '#' + tag.to_s
-  - end.join(' ')
-= image_tag post.image.url(:medium), class: 'post-image'
+.panel
+  %h2= link_to post.title, post_path(post)
+  %p.postcontrol
+    = link_to 'edit', edit_post_path(post)
+    = link_to 'delete', post_path(post), method: :delete
+  %p= post.body
+  %p.taglist
+    = post.tags.map do |tag|
+      -   '#' + tag.to_s
+    - end.join(' ')
+  = image_tag post.image.url(:medium), class: 'post-image' if post.image?
