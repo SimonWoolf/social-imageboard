@@ -21,3 +21,8 @@
   opacity: 0.5;
   display: none;
 }
+
+#backtotop:hover {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
