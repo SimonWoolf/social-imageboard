@@ -21,8 +21,8 @@ describe Post do
     end
 
     it 'should deal with either comma or (multiple) space separated tagstrings' do
-      create(:post, tagstring: "atag, ,,,,  btag\t \t ctag,dtag")
-      expect(Tag.all.map(&:name)).to eq ["atag", "btag", "ctag", "dtag"]
+      create(:post, tagstring: "atag, ,,,,  btag\t \t ctag,d_tag")
+      expect(Tag.all.map(&:name)).to eq ["atag", "btag", "ctag", "d_tag"]
     end
   end
 end

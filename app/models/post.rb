@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   def tagstring=(tagstring)
     self.tags = tagstring.split(/[\s,]+/).map do |tag|
       normalised_tag = tag.downcase
-                          .gsub(/[^0-9a-z]/, '')
+                          .gsub(/[^0-9a-z_-]/, '')
       Tag.find_or_create_by(name: normalised_tag)
     end
   end
