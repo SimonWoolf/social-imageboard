@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+#backtotop {
+  position:fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  padding: 0px 10px;
+  opacity: 0.5;
+  display: none;
+}
