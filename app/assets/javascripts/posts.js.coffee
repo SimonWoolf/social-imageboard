@@ -5,7 +5,14 @@
 $(document).ready ->
   $('#tagfilter').keyup ->
     $('.panel').show()
-    $('.panel').filter (i) ->
-      filter = $('#tagfilter').val().toLowerCase()
-      $('p.taglist', this).html().indexOf(filter) < 0
-    .hide();
+    tagList = $('#tagfilter').val()
+                            .toLowerCase()
+                            .split(/[\s,]+/)
+    for tag in tagList
+      negative = (tag.charAt(0) == '-')
+      tag = tag.slice(1) if negative
+      $('.panel').filter ->
+        indexOfTag = $('p.taglist', this).html().indexOf(tag)
+        if negative then indexOfTag > 0 else indexOfTag < 0
+      .hide()
+
