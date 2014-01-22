@@ -14,9 +14,12 @@
   float: left !important;
 }
 
+.post-image-small {
+  max-height: 11rem;
+  max-width: 11rem;
+}
+
 .post-image {
-  max-height: 10rem;
-  max-width: 10rem;
   float: left;
   margin-right: 10px;
   margin-bottom: 5px;

@@ -10,5 +10,5 @@
       = post.tags.map do |tag|
         -   '#' + tag.to_s
       - end.join(' ')
-    = image_tag post.image.url(:medium), class: 'post-image' if post.image?
+    = image_tag post.image.url(:medium), class: 'post-image post-image-small' if post.image?
     %p= truncate(post.body, length: 320)
