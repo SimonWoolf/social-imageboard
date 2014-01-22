@@ -21,7 +21,7 @@ describe 'posts' do
     expect(page).to have_content '#feature'
   end
 
-  it 'should show an uploaded image' do
+  it 'should show an uploaded image', slow: true do
     visit '/posts/new'
     fill_in 'post_title', with: 'testtitle'
     attach_file 'post_image', Rails.root.join('spec/images/testimage.jpg')
