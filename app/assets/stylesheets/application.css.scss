@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require inputosaurus
  *= require_tree .
  */
 
@@ -25,4 +26,20 @@
 #backtotop:hover {
   opacity: 1;
   transition: opacity 0.5s;
+}
+
+.loading-indicator {
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
+}
+
+.inputosaurus-container {
+  margin-bottom: 1rem !important;
 }
