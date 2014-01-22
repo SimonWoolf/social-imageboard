@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe 'filtering', js: true do
+describe 'filtering', js: true, slow: true do
   it 'should filter in js if possible' do
     create(:post, title: 'goodpost', tagstring: 'goodtag')
     create(:post, title: 'badpost', tagstring: 'badtag')
@@ -11,7 +11,7 @@ describe 'filtering', js: true do
     expect(page).not_to have_content(:visible, 'badpost')
   end
   
-  it 'should filter by multiple tags' do
+  it 'should filter by multiple tags', slow: true do
     create(:post, title: 'goodpost', tagstring: 'goodtag requiredtag')
     create(:post, title: 'badpost 1', tagstring: 'goodtag')
     create(:post, title: 'badpost 2', tagstring: 'anothertag badtag')
@@ -22,7 +22,7 @@ describe 'filtering', js: true do
     expect(page).not_to have_content(:visible, 'badpost')
   end
 
-  it 'should perform a negative filter with a prepended dash' do
+  it 'should perform a negative filter with a prepended dash', slow: true do
     create(:post, title: 'goodpost', tagstring: 'goodtag')
     create(:post, title: 'badpost', tagstring: 'badtag')
     visit '/'
