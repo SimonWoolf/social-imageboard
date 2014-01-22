@@ -29,4 +29,7 @@ $(document).ready ->
 
   #inputting tags
   $('#post_tagstring').inputosaurus
-    width : '100%'
+    width: '100%',
+    autoCompleteSource: ['alabama', 'illinois', 'kansas', 'kentucky', 'new york'],
+    inputDelimiters: [',', ';', ' '],
+    activateFinalResult: true
