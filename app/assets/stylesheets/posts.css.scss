@@ -4,6 +4,20 @@
 
 .taglist, .postcontrol {
   font-style: italic;
-  font-size: 80%;
 }
 
+.postpanel {
+  height: 20rem;
+}
+
+.panelcontainer {
+  float: left !important;
+}
+
+.post-image {
+  max-height: 10rem;
+  max-width: 10rem;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
