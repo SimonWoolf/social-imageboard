@@ -13,4 +13,14 @@
     = image_tag post.image.url(:medium), class: 'post-image post-image-small' if post.image?
     %p= truncate(post.body, length: 200)
 
-    = link_to 'View comments', post_comments_path(post), class: 'tiny button viewcomments'
+    = link_to 'View comments', 
+              post_comments_path(post), 
+              class: 'tiny button viewcomments',
+              data: {dropdown: "drop#{post.id}"}
+
+  .f-dropdown.content{id: "drop#{post.id}", data: {dropdown_content: true}}
+    - post.comments.each do |comment|
+      %h6
+        %b= comment.name
+        = comment.text
+    = link_to 'Add comment', new_post_comment_path(post), class: 'tiny button'
