@@ -1,6 +1,7 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "foundation/functions";
 
 .taglist, .postcontrol {
   font-style: italic;
@@ -21,6 +22,12 @@
 
 .post-image {
   float: left;
-  margin-right: 10px;
-  margin-bottom: 5px;
+  margin-right: rem-calc(10px);
+  margin-bottom: rem-calc(5px);
+}
+
+.viewcomments {
+  position: absolute;
+  bottom: rem-calc(40px);
+  left: rem-calc(37px);
 }

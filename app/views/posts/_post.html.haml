@@ -11,4 +11,6 @@
         -   '#' + tag.to_s
       - end.join(' ')
     = image_tag post.image.url(:medium), class: 'post-image post-image-small' if post.image?
-    %p= truncate(post.body, length: 320)
+    %p= truncate(post.body, length: 200)
+
+    = link_to 'View comments', post_comments_path(post), class: 'tiny button viewcomments'

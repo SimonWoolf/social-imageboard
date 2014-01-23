@@ -12,13 +12,14 @@
  *= require inputosaurus
  *= require_tree .
  */
+@import "foundation/functions";
 
 #backtotop {
   position:fixed;
-  top: 15px;
-  right: 15px;
+  top: rem-calc(15px);
+  right: rem-calc(15px);
   font-size: 2rem;
-  padding: 0px 10px;
+  padding: rem-calc(0px) rem-calc(10px);
   opacity: 0.5;
   display: none;
   z-index: 1; /* on top of the panels which are floats */
