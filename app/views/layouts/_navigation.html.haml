@@ -10,14 +10,12 @@
 
   .top-bar-section
     %ul.left
-      %li.name
-        %a{href: '#'} Foo
       %li.has-form
         .row.collapse
           .large-8.columns
             %input#tagfilter{type: 'text', placeholder: 'filter by tag'}
-          .large-4.columns
-            %a.button.alert.expand{href: '#'} Filter
+          -#.large-4.columns
+            -#%a.button.alert.expand{href: '#'} Filter
 
     %ul.right
       %li.has-form
