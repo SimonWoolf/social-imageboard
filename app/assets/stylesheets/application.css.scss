@@ -21,6 +21,7 @@
   padding: 0px 10px;
   opacity: 0.5;
   display: none;
+  z-index: 1; /* on top of the panels which are floats */
 }
 
 #backtotop:hover {
