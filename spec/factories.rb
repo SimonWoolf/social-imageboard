@@ -3,6 +3,5 @@ FactoryGirl.define do
     title 'posttitle'
     body 'postbody'
     user nil
-    #comments []
   end
 end

@@ -13,3 +13,11 @@
       - end.join(' ')
     = image_tag @post.image.url(:medium), class: 'post-image' if @post.image?
     %p= @post.body
+
+    = link_to 'Add comment', new_post_comment_path(@post), class: 'tiny button'
+
+    - @post.comments.each do |comment|
+      %h6
+        %b= comment.name
+        = comment.text
+
