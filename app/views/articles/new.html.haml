@@ -1,2 +1,7 @@
 %h1 Articles#new
-%p Find me in app/views/articles/new.html.haml
+
+= form_for @article do |f|
+  = f.text_field :title
+  = f.text_field :link
+  = f.text_area :text
+  = f.submit

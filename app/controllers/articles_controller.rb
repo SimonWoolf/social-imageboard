@@ -1,11 +1,15 @@
 class ArticlesController < ApplicationController
+  ARTICLE_FIELDS = [:title, :link, :text]
+  
   def index
+    @articles = Article.all
   end
 
   def show
   end
 
   def new
+    @article = Article.new
   end
 
   def update
@@ -15,5 +19,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    Article.create(params[:article].permit(ARTICLE_FIELDS))
+    redirect_to '/'
   end
 end
