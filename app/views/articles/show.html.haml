@@ -1,2 +1,15 @@
 %h1 Articles#show
-%p Find me in app/views/articles/show.html.haml
+.row
+  .small-12.columns
+    %h2
+      = link_to article.title, article.link
+      %small.articlecontrol
+        = link_to 'edit', edit_article_path(article)
+        &middot;
+        = link_to 'delete', article_path(article), method: :delete
+    %p.taglist
+      = @post.tags.map do |tag|
+        -   '#' + tag.to_s
+      - end.join(' ')
+    = image_tag @post.image.url(:medium), class: 'post-image' if @post.image?
+    %p= @post.body

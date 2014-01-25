@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -21,5 +22,9 @@ class ArticlesController < ApplicationController
   def create
     Article.create(params[:article].permit(ARTICLE_FIELDS))
     redirect_to '/'
+  end
+
+  def edit
+
   end
 end
