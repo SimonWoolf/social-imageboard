@@ -8,6 +8,5 @@ FactoryGirl.define do
     title "Title"
     link "http://example.com"
     text "Article body"
-    user
   end
 end

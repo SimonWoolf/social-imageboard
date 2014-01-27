@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should know what articles it\'s upvoted' do
+    creator = create(:user)
+    upvoter = create(:user, email: "another@example.com")
+    article = create(:article)
+    creator.articles << article
+    upvoter.upvote(article)
+    expect(upvoter.upvoted.first).to eq article
+  end
 end
