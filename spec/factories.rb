@@ -9,11 +9,4 @@ FactoryGirl.define do
     link "http://example.com"
     text "Article body"
   end
-  
-  factory :article_user do
-    title "Title made by user"
-    link "http://example.com"
-    text "Article body made by user"
-    user
-  end
 end

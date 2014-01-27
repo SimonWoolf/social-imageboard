@@ -18,9 +18,9 @@ describe 'Articles' do
   end
 
   specify 'upvoting an article' do
-    create(:article_user)
+    @user.articles << create(:article)
     visit '/articles'
-    click_button 'upvote'
-    expect(page).to have_css 'upvotes', text: '1'
+    click_button '↑'
+    expect(page).to have_css '.upvotes', text: '1'
   end
 end

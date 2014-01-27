@@ -1,3 +1,25 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "foundation";
+
+.article-header * {
+  display: inline-block;
+}
+
+.article-header .button.tiny {
+  padding: rem-calc(5px);
+  margin-bottom: rem-calc(10px);
+  height: rem-calc(26px);
+  vertical-align: middle; 
+}
+
+.upvotes {
+  vertical-align: middle; 
+  height: rem-calc(26px);
+  padding: rem-calc(5px);
+  background-color: rgb(0, 140, 186);
+  color: white;
+  margin-bottom: rem-calc(10px);
+  margin-right: rem-calc(-5px);
+}
