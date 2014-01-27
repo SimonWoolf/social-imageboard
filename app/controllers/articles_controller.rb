@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   ARTICLE_FIELDS = [:title, :link, :text]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] 
   
   def index
     @articles = Article.all
@@ -16,9 +17,6 @@ class ArticlesController < ApplicationController
   def update
     @article.update(params[:article].permit(ARTICLE_FIELDS))
     redirect_to article_path(@article)
-  end
-
-  def delete
   end
 
   def create
