@@ -4,6 +4,7 @@ $(document).ready ->
   dispatcher = new WebSocketRails(window.location.host + '/websocket')
 
   channel = dispatcher.subscribe('votes')
-  channel.bind 'vote', (post) ->
+  channel.bind 'vote', (article) ->
     # ruby-like string interpolation because coffeescript
-    $(".votes_count[data-id=#{post.id}]").text(post.points)
+    console.log(article.upvotes)
+    $(".upvotes[data-id=#{article.id}]").text(article.upvotes)

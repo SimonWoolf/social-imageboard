@@ -2,7 +2,7 @@
   .panel.articlepanel
     .article-header
       .voting
-        .upvotes= article.upvotes.count
+        .upvotes{data: {id: article.id}}= article.upvotes.count
         = button_to '↑', article_upvotes_path(article), class: 'tiny button upvote'
       %h2
         = link_to article.title, article.link
