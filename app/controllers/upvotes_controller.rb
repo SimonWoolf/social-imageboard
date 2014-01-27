@@ -1,6 +1,6 @@
 class UpvotesController < ApplicationController
   def create
-    Upvote.create(user: current_user, article_id: params[:article_id])
+    current_user.upvote(Article.find(params[:article_id]))
     redirect_to articles_path
   end
 end

@@ -4,10 +4,10 @@ require 'spec_helper'
 describe 'Articles' do
   before :each do
     @user = create(:user)
+    login_as(@user)
   end
 
   specify 'Adding a new article' do
-    login_as(@user)
     visit '/articles/new'
     fill_in 'article_title', with: 'Google search engine'
     fill_in 'article_link', with: 'http://google.co.uk'
@@ -22,5 +22,13 @@ describe 'Articles' do
     visit '/articles'
     click_button '↑'
     expect(page).to have_css '.upvotes', text: '1'
+  end
+  
+  specify 'un-upvoting an article' do
+    @user.articles << create(:article)
+    visit '/articles'
+    click_button '↑'
+    click_button '↑'
+    expect(page).to have_css '.upvotes', text: '0'
   end
 end
