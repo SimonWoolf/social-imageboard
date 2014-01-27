@@ -11,6 +11,7 @@ describe ArticlesController do
 
   describe "GET 'show'" do
     it "returns http success" do
+      FactoryGirl.create(:article)
       get 'show', id: Article.first.id
       response.should be_success
     end
