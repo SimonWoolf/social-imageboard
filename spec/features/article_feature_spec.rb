@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe 'Articles' do
   before :each do
     @user = create(:user)
