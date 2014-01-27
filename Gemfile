@@ -19,6 +19,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'thin' # use thin t'make websockets work
+gem 'websocket-rails'
 gem 'haml-rails'
 gem 'devise'
 gem 'foundation-rails'
