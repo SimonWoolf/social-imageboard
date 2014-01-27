@@ -18,3 +18,5 @@
 $(function() {
   $(document).foundation();
 });
+//= require websocket_rails/main
+
