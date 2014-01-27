@@ -12,6 +12,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'factory_girl_rails', "~> 4.0", require: false
   gem 'rails_layout' #see http://railsapps.github.io/rails-foundation.html
+  gem 'railroady'
 end
 
 group :production do

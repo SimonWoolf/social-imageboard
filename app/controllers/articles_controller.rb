@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
   def edit
   end
 
-
   def detroy
     @article.destroy
     redirect_to articles_path
