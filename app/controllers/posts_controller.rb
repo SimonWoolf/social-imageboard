@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def authenticate_post_creator
     if @post.user != current_user
-      flash[:alert] = "Only the post creator can edit their post"
+      flash[:alert] = "Only the post creator can edit or delete their post"
       redirect_to posts_path
     end
   end
