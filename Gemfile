@@ -19,6 +19,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'thin' # use thin t'make websockets work
 gem 'websocket-rails'
 gem 'haml-rails'

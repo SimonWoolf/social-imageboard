@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/alexpeattie/heroku_secrets.git
+  revision: b0c5f0680c9e57f7749d404426b8841d6ffe0114
+  specs:
+    heroku_secrets (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -230,6 +236,7 @@ DEPENDENCIES
   foundation-rails
   foundation_rails_helper
   haml-rails
+  heroku_secrets!
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
