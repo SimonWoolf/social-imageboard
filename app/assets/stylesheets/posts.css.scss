@@ -8,7 +8,7 @@
 }
 
 .postpanel {
-  height: 20rem;
+  /*height: 20rem;*/
 }
 
 .panelcontainer {
@@ -39,8 +39,18 @@
 .post-header .button.tiny {
   padding: rem-calc(5px);
   margin-bottom: rem-calc(10px);
+  margin-right: rem-calc(10px);
   height: rem-calc(26px);
-  vertical-align: middle; 
+  vertical-align: middle;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
 }
 
 .upvotes {
