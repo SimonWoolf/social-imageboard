@@ -4,19 +4,19 @@ describe User do
   describe '#upvote & .upvoted' do
     before :each do
       creator = create(:user)
-      @article = create(:article)
-      creator.articles << @article
+      @post = create(:post)
+      creator.posts << @post
       @upvoter = create(:user, email: "another@example.com")
     end
 
     it 'should upvote if not upvoted' do
-      @upvoter.upvote(@article)
-      expect(@upvoter.upvoted.first).to eq @article
+      @upvoter.upvote(@post)
+      expect(@upvoter.upvoted.first).to eq @post
     end
 
     it 'should un-upvote if upvoted again' do
-      @upvoter.upvote(@article)
-      @upvoter.upvote(@article)
+      @upvoter.upvote(@post)
+      @upvoter.upvote(@post)
       expect(@upvoter.upvoted).to be_empty
     end
   end

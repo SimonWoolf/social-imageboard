@@ -1,6 +1,22 @@
 require 'spec_helper'
 
 describe Post do
+  it 'should know what user created it' do
+    user = create(:user)
+    post = create(:post)
+    user.posts << post
+    expect(post.creator).to be user
+  end
+
+  it 'should know what users have upvoted it' do
+    creator = create(:user)
+    upvoter = create(:user, email: "another@example.com")
+    post = create(:post)
+    creator.posts << post
+    upvoter.upvote(post)
+    expect(post.upvoters.first).to eq upvoter
+  end
+
   describe '#tagstring=' do
     it 'should create a tag attached to the post' do
       post = create(:post, tagstring: 'atag')
