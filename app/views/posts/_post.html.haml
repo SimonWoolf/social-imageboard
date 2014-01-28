@@ -1,5 +1,11 @@
 .large-6.columns.panelcontainer
   .panel.postpanel
+    .post-header
+      .voting
+        .upvotes{data: {id: post.id}}= post.upvotes.count
+        = button_to '↑', post_upvotes_path(post), class: 'tiny button upvote'
+      %h2
+        = link_to post.title, post.link
     %h2
       - if post.title.empty?
         %i= link_to "untitled", post_path(post)

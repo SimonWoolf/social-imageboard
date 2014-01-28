@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
+  has_many :upvotes
+  has_many :upvoters, through: :upvotes, source: :user
   has_and_belongs_to_many :tags
 
   has_attached_file :image, 
@@ -18,5 +20,9 @@ class Post < ActiveRecord::Base
 
   def tagstring
     self.tags.map(&:name).join(', ')
+  end
+  
+  def creator
+    user
   end
 end

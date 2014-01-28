@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   POST_FIELDS = [:title, :body, :image, :tagstring]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] 
 
   def index
     @posts = Post.all
