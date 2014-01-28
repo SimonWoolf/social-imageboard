@@ -54,5 +54,19 @@ describe 'posts' do
       expect(page).to have_content 'newtitle'
       expect(page).not_to have_content 'testtitle'
     end
+
+    context 'post made by another user' do
+      specify 'should not be able to edit' do
+        creator = create(:user, email: 'creator@example.com')
+        post = create(:post)
+        creator.posts << post
+        visit '/posts'
+        expect(page).not_to have_link 'edit'
+      end
+
+      specify 'should not be able to delete' do
+
+      end
+    end
   end
 end
