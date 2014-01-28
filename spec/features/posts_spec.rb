@@ -9,43 +9,50 @@ describe 'posts' do
     expect(page).not_to have_content 'Error'
   end
 
-  it 'should create a new post' do
-    visit '/posts/new'
-    fill_in 'post_title', with: 'testtitle'
-    fill_in 'post_body', with: 'testbody'
-    fill_in 'post_tagstring', with: 'testing, feature'
-    click_button 'Create Post'
-    expect(page).to have_content 'testtitle'
-    expect(page).to have_content 'testbody'
-    expect(page).to have_content '#testing'
-    expect(page).to have_content '#feature'
-  end
+  describe 'logged in' do
+    before :each do
+      @user = create(:user)
+      login_as(@user)
+    end
 
-  it 'should show an uploaded image', slow: true do
-    visit '/posts/new'
-    fill_in 'post_title', with: 'testtitle'
-    attach_file 'post_image', Rails.root.join('spec/images/testimage.jpg')
-    click_button 'Create Post'
-    expect(page).to have_css 'img.post-image'
-  end
+    it 'should create a new post' do
+      visit '/posts/new'
+      fill_in 'post_title', with: 'testtitle'
+      fill_in 'post_body', with: 'testbody'
+      fill_in 'post_link', with: 'http://google.co.uk'
+      fill_in 'post_tagstring', with: 'testing, feature'
+      click_button 'Create Post'
+      expect(page).to have_link 'testtitle', href: 'http://google.co.uk'
+      expect(page).to have_content 'testbody'
+      expect(page).to have_content '#testing'
+      expect(page).to have_content '#feature'
+    end
 
-  it 'should delete posts' do
-    create(:post)
-    visit '/posts'
-    click_link 'delete'
-    expect(page).not_to have_content 'posttitle'
-    expect(page).not_to have_content 'Error'
-  end
+    it 'should show an uploaded image', slow: true do
+      visit '/posts/new'
+      fill_in 'post_title', with: 'testtitle'
+      attach_file 'post_image', Rails.root.join('spec/images/testimage.jpg')
+      click_button 'Create Post'
+      expect(page).to have_css 'img.post-image'
+    end
 
-  it 'should edit posts' do
-    create(:post)
-    visit '/posts'
-    click_link 'edit'
-    fill_in 'post_title', with: 'newtitle'
-    fill_in 'post_body', with: 'newbody'
-    click_button 'Update Post'
-    expect(page).to have_content 'newtitle'
-    expect(page).not_to have_content 'testtitle'
-  end
+    it 'should delete posts' do
+      create(:post)
+      visit '/posts'
+      click_link 'delete'
+      expect(page).not_to have_content 'posttitle'
+      expect(page).not_to have_content 'Error'
+    end
 
+    it 'should edit posts' do
+      create(:post)
+      visit '/posts'
+      click_link 'edit'
+      fill_in 'post_title', with: 'newtitle'
+      fill_in 'post_body', with: 'newbody'
+      click_button 'Update Post'
+      expect(page).to have_content 'newtitle'
+      expect(page).not_to have_content 'testtitle'
+    end
+  end
 end

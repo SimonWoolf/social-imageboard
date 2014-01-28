@@ -1,20 +1,25 @@
-.large-6.columns.panelcontainer
-  .panel.postpanel
-    %h2
-      - if post.title.empty?
-        %i= link_to "untitled", post_path(post)
-      - else
-        = link_to post.title, post_path(post)
-      %small.postcontrol
-        = link_to 'edit', edit_post_path(post)
-        &middot;
-        = link_to 'delete', post_path(post), method: :delete
+.large-12.columns.panelcontainer
+  .panel.postpanel.clearfix
+    .post-header
+      .voting
+        .upvotes{data: {id: post.id}}= post.upvotes.count
+        = button_to '↑', post_upvotes_path(post), class: 'tiny button upvote'
+      %h2
+        - link = post.link || post_path(post)
+        - if post.title.empty?
+          %i= link_to "untitled", link
+        - else
+          = link_to post.title, link
+        %small.postcontrol
+          = link_to 'edit', edit_post_path(post)
+          &middot;
+          = link_to 'delete', post_path(post), method: :delete
     %p.taglist
       = post.tags.map do |tag|
         -   '#' + tag.to_s
       - end.join(' ')
     = image_tag post.image.url(:medium), class: 'post-image post-image-small' if post.image?
-    %p= truncate(post.body, length: 200)
+    %p= truncate(post.body, length: 500)
 
     = link_to 'View comments', 
               post_comments_path(post), 

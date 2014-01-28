@@ -13,9 +13,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module InstagramClone
+module SocialNewsSite
   class Application < Rails::Application
-    config.secret_token = ENV['SECRET_TOKEN']
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

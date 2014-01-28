@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
-  gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'factory_girl_rails', "~> 4.0", require: false
@@ -16,6 +17,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+gem 'thin' # use thin t'make websockets work
+gem 'websocket-rails'
 gem 'haml-rails'
 gem 'devise'
 gem 'foundation-rails'
@@ -25,7 +29,7 @@ gem 'aws-sdk'
 gem 'newrelic_rpm'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.beta1'
+gem 'rails', '~>4.1.0.beta1'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

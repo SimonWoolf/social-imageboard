@@ -16,6 +16,7 @@
 //= require jquery.ui.all
 //= require foundation
 //= require inputosaurus
+//= require websocket_rails/main
 //= require_tree .
 //= require turbolinks
 $(function() {

@@ -2,8 +2,8 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Instagram Clone'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Instagram Clone'}"}
+    %title= content_for?(:title) ? yield(:title) : 'Social News Site'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Social News Site'}"}
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag "vendor/modernizr"
@@ -16,4 +16,3 @@
       = render 'layouts/messages'
       = yield
       = image_tag('ajax-loader.gif', class: 'loading-indicator')
-
