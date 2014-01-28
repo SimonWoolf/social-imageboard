@@ -16,8 +16,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(params[:post].permit(POST_FIELDS))
-    redirect_to '/posts'
+    post = Post.new(params[:post].permit(POST_FIELDS))
+    post.user = current_user
+    if post.save
+      redirect_to posts_path
+    else
+      redirect_to new_post_path
+    end
   end
 
   def edit

@@ -26,6 +26,7 @@ describe 'posts' do
       expect(page).to have_content 'testbody'
       expect(page).to have_content '#testing'
       expect(page).to have_content '#feature'
+      expect(page).to have_content 'edit'
     end
 
     it 'should show an uploaded image', slow: true do
@@ -37,7 +38,7 @@ describe 'posts' do
     end
 
     it 'should delete posts' do
-      create(:post)
+      create(:post, user: @user)
       visit '/posts'
       click_link 'delete'
       expect(page).not_to have_content 'posttitle'
@@ -45,7 +46,7 @@ describe 'posts' do
     end
 
     it 'should edit posts' do
-      create(:post)
+      create(:post, user: @user)
       visit '/posts'
       click_link 'edit'
       fill_in 'post_title', with: 'newtitle'
@@ -56,16 +57,12 @@ describe 'posts' do
     end
 
     context 'post made by another user' do
-      specify 'should not be able to edit' do
+      specify 'should not be able to edit/delete' do
         creator = create(:user, email: 'creator@example.com')
         post = create(:post)
         creator.posts << post
         visit '/posts'
         expect(page).not_to have_link 'edit'
-      end
-
-      specify 'should not be able to delete' do
-
       end
     end
   end

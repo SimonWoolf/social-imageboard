@@ -10,10 +10,11 @@
           %i= link_to "untitled", link
         - else
           = link_to post.title, link
-        %small.postcontrol
-          = link_to 'edit', edit_post_path(post)
-          &middot;
-          = link_to 'delete', post_path(post), method: :delete
+        - if post.user == current_user
+          %small.postcontrol
+            = link_to 'edit', edit_post_path(post)
+            &middot;
+            = link_to 'delete', post_path(post), method: :delete
     %p.taglist
       = post.tags.map do |tag|
         -   '#' + tag.to_s
