@@ -19,7 +19,7 @@ describe 'posts' do
       visit '/posts/new'
       fill_in 'post_title', with: 'testtitle'
       fill_in 'post_body', with: 'testbody'
-      fill_in 'post_link', with: 'http://google.co.uk'
+      fill_in 'post_link', with: 'google.co.uk'
       fill_in 'post_tagstring', with: 'testing, feature'
       click_button 'Create Post'
       expect(page).to have_link 'testtitle', href: 'http://google.co.uk'

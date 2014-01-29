@@ -25,4 +25,12 @@ class Post < ActiveRecord::Base
   def creator
     user
   end
+
+  def link=(url)
+    begin
+      url = "http://#{url}" if URI.parse(url).scheme.nil?
+      self['link'] = URI.parse(url).to_s
+    rescue URI::InvalidURIError
+    end
+  end
 end

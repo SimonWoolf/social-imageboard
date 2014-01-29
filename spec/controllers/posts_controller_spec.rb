@@ -55,7 +55,6 @@ describe PostsController do
 
     it "should be able to delete" do
       delete 'destroy', id: @post, post: attributes_for(:post)
-      pp response
       # note: same response as if it doesn't delete...
       expect(response).to redirect_to posts_path 
     end

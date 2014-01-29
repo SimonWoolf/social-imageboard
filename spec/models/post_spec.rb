@@ -41,4 +41,26 @@ describe Post do
       expect(Tag.all.map(&:name)).to eq ["atag", "btag", "ctag", "d_tag"]
     end
   end
+
+  describe '#link=' do
+    it 'should pass a full url untouched' do 
+      post = create(:post, link: 'http://example.com')
+      expect(post.link).to eq 'http://example.com'
+    end
+
+    it 'should store a link without protocol as http://' do 
+      post = create(:post, link: 'example.com')
+      expect(post.link).to eq 'http://example.com'
+    end
+
+    it 'should store a link without protocol as http://' do 
+      post = create(:post, link: 'example.com')
+      expect(post.link).to eq 'http://example.com'
+    end
+
+    it 'should not store an invalid url' do
+      post = create(:post, link: '£$%&@€')
+      expect(post.link).to be_nil
+    end
+  end
 end
