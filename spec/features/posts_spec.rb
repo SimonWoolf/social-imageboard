@@ -29,12 +29,15 @@ describe 'posts' do
       expect(page).to have_content 'edit'
     end
 
-    it 'should tell you if link was bad' do
+    it 'should tell you if link was bad, & repopulate form' do
       visit '/posts/new'
       fill_in 'post_title', with: 'testtitle'
       fill_in 'post_link', with: '###'
       click_button 'Create Post'
-      expect(page).to have_content 'Invalid'
+      expect(page).to have_content 'Invalid link'
+      # form should still be populated with everything except link:
+      expect(find_field('post_title').value).to eq 'testtitle'
+      expect(find_field('post_link').value).not_to eq '###'
 
     end
 
