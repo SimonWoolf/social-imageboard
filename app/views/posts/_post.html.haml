@@ -3,7 +3,7 @@
     .post-header
       .voting
         .upvotes{data: {id: post.id}}= post.upvotes.count
-        = button_to '↑', post_upvotes_path(post), class: 'tiny button upvote'
+        = button_to '↑', post_upvotes_path(post), class: 'tiny button upvote', remote: true
       %h2
         - link = post.link || post_path(post)
         - if post.title.empty?
