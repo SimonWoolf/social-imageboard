@@ -59,8 +59,7 @@ describe Post do
     end
 
     it 'should not store an invalid url' do
-      post = create(:post, link: '£$%&@€')
-      expect(post.link).to be_nil
+      expect{create(:post, link: '£$%&@€')}.to raise_error URI::InvalidURIError
     end
   end
 end

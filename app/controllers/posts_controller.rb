@@ -16,7 +16,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(params[:post].permit(POST_FIELDS))
+    begin
+      post = Post.new(params[:post].permit(POST_FIELDS))
+    rescue URI::InvalidURIError
+      flash.now[:error] = 'Invalid link, try again'
+      # post is nil. so have to construct a new Post object to prepopulate form
+      params[:post]['link'] = ''
+      @post = Post.new(params[:post].permit(POST_FIELDS))
+      render :new and return
+    end
     post.user = current_user
     if post.save
       redirect_to posts_path

@@ -27,10 +27,8 @@ class Post < ActiveRecord::Base
   end
 
   def link=(url)
-    begin
-      url = "http://#{url}" if URI.parse(url).scheme.nil?
-      self['link'] = URI.parse(url).to_s
-    rescue URI::InvalidURIError
-    end
+    return if url.blank?
+    url = "http://#{url}" if URI.parse(url).scheme.nil?
+    self['link'] = URI.parse(url).to_s
   end
 end

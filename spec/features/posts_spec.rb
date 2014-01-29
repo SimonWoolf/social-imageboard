@@ -29,6 +29,15 @@ describe 'posts' do
       expect(page).to have_content 'edit'
     end
 
+    it 'should tell you if link was bad' do
+      visit '/posts/new'
+      fill_in 'post_title', with: 'testtitle'
+      fill_in 'post_link', with: '###'
+      click_button 'Create Post'
+      expect(page).to have_content 'Invalid'
+
+    end
+
     it 'should show an uploaded image', slow: true do
       visit '/posts/new'
       fill_in 'post_title', with: 'testtitle'
