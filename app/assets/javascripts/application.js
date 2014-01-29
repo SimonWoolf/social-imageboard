@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery.tinysort.min
 //= require foundation
 //= require inputosaurus
 //= require websocket_rails/main

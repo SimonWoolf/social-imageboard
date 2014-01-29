@@ -1,7 +1,3 @@
-store link as actiondispath::htto::url object
 sorting
 twitter auth
 search
-
-store URL in databse - yaml serialize? or store as seperate parts
-(domain, scheme, etc)? or store just as a single url string?#
