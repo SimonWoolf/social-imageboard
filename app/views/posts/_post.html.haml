@@ -10,7 +10,7 @@
           %i= link_to "untitled", link
         - else
           = link_to post.title, link
-        - if post.user == current_user
+        - if current_user && post.user == current_user
           %small.postcontrol
             = link_to 'edit', edit_post_path(post)
             &middot;
