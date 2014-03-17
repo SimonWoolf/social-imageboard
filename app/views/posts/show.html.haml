@@ -4,7 +4,7 @@
     %h2
       = link_to @post.title, post_path(@post)
       %small.postcontrol
-        - if current_user && post.user == current_user
+        - if current_user && @post.user == current_user
           = link_to 'edit', edit_post_path(@post)
           &middot;
           = link_to 'delete', post_path(@post), method: :delete
